@@ -1,59 +1,121 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import {motion} from 'framer-motion';
 import './App.css';
 
 const Fitzone = () => {
 
-    const fadeInUp = {
+      const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" }
-    }
-  };
-
-  const slideInLeft = {
-    hidden: { opacity: 0, x: -100 },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
-  };
-
-  const slideInRight = {
-    hidden: { opacity: 0, x: 100 },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
       }
-    }
+    };
+
+    const slideInLeft = {
+      hidden: { opacity: 0, x: -100 },
+      visible: { 
+        opacity: 1, 
+        x: 0,
+        transition: { duration: 0.8, ease: "easeOut" }
+      }
+    };
+
+    const slideInRight = {
+      hidden: { opacity: 0, x: 100 },
+      visible: { 
+        opacity: 1, 
+        x: 0,
+        transition: { duration: 0.8, ease: "easeOut" }
+      }
+    };
+
+    const staggerContainer = {
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: {
+          staggerChildren: 0.2,
+          delayChildren: 0.3
+        }
+      }
+    };
+
+    const scaleIn = {
+      hidden: { opacity: 0, scale: 0.8 },
+      visible: { 
+        opacity: 1, 
+        scale: 1,
+        transition: { duration: 0.5, ease: "easeOut" }
+      }
+    };
+
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
+
+   const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const scaleIn = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
-      scale: 1,
-      transition: { duration: 0.5, ease: "easeOut" }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    if (!formData.name.trim()) {
+      setSubmitStatus('Name is required');
+      setIsSubmitting(false);
+      return;
     }
-  };
+    if (!formData.phone.trim()) {
+      setSubmitStatus('Phone number is required');
+      setIsSubmitting(false);
+      return;
+    }
+    if (!formData.email.trim()) {
+      setSubmitStatus('Email is required');
+      setIsSubmitting(false);
+      return;
+    }
+    if (!formData.message.trim()) {
+      setSubmitStatus('Name is required');
+      setIsSubmitting(false);
+      return;
+    }
+    try {
+      setTimeout(() => {
+        setSubmitStatus('Message sent successfully!');
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          message: '',
+        });
+        setIsSubmitting(false);
+      }, 1000);
+    } catch (error) {
+      setSubmitStatus('Failed to send message. Please try again.');
+      setIsSubmitting(false);
+    }
+
+    };
 
   return (
     <div>
-      
+
       {/* Navbar */}
 
       <nav className="nav">
@@ -63,13 +125,17 @@ const Fitzone = () => {
               <h1><a href="#home"><span className="multi">Fit</span>Zone<span className="multi"> Gym</span></a></h1> 
             </div>
 
-            <div className="display: flex; align-items:center; flex-end;">
-              <a href="#home" class="nav-link">Home</a>
-              <a href="#aboutus" class="nav-link">About Us</a>
-              <a href="#services" class="nav-link">Services</a>
-              <a href="#trainers" class="nav-link">Trainers</a>
-              <a href="#pricing" class="nav-link">Pricing</a>
-              <a href="#contactus" class="nav-link">Contact Us</a>
+            <div style={{ 
+              display: 'flex',
+              alignItems: 'center', 
+              justifyContent: 'flex-end' }}>
+
+              <a href="#home" className="nav-link">Home</a>
+              <a href="#aboutus" className="nav-link">About Us</a>
+              <a href="#services" className="nav-link">Services</a>
+              <a href="#trainers" className="nav-link">Trainers</a>
+              <a href="#pricing" className="nav-link">Pricing</a>
+              <a href="#contactus" className="nav-link">Contact Us</a>
           </div>
 
         </div>
@@ -94,7 +160,7 @@ const Fitzone = () => {
 
         <motion.p
         className="subtitle"
-        variant={fadeInUp}>
+        variants={fadeInUp}>
 
           Join <span class="multi">Fit</span>Zone and start your fitness journey today
 
@@ -102,7 +168,7 @@ const Fitzone = () => {
 
         <motion.div
         className="home-buttons"
-        variant={fadeInUp}>
+        variants={fadeInUp}>
 
           <motion.button
           className="btn-book"
@@ -593,38 +659,161 @@ const Fitzone = () => {
 
       {/* Contact US */}
 
-        <motion.section
-        id="contactus" 
-        className="pages1"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={staggerContainer}>
+      <motion.section
+        id = "contactus"
+        className = "page1"
+        initial = "hidden"
+        whileInView = "visible"
+        viewport = {{ once: true, amount: 0.3}}
+        variants = {staggerContainer}>
 
-          <motion.div 
-          className="contact-header" 
-          variants={fadeInUp}>
 
-            <h1 className="title">Contact <span className="multi">Us</span></h1>
-            <p className="subtitle">NEED HELP? <span className="multi-bold">REACH OUT</span> TO US</p>
+        <motion.div 
+        className = "contactus-header"
+        variants={fadeInUp}>
+
+          <h3 className='title'>Contact <span className='multi'>Us</span> </h3>
+          <p className='subtitle'>We would love to <span className='multi-bold'>hear</span> from you. Send us a <span className='multi-bold'>message</span> and we'll respond you ASAP</p>
+        </motion.div>
+
+        <motion.div 
+        className='contactus-text'
+        variants={slideInLeft}>
+
+          <h1 className='contactus-h3'>Connect With Us</h1>
+
+          <motion.p 
+          className='contactus-p'
+          variants={scaleIn}>
+            <div className='contactus-icon'>
+              <i className='fa-brands fa-instagram'></i>
+              <a className='contactus-id' href='https://instagram.com/iammartariq'> @iammartariq</a>
+            </div>
+          </motion.p>
+
+          <motion.p
+          className='contactus-p'
+          variants={scaleIn}>
+            <div className='contactus-icon'>
+              <i className='fa-brands fa-linkedin'></i>
+              <a className='contactus-id' href='https://linkedin.com/in/ammartariq24'> ammartariq24</a>
+            </div>
+          </motion.p>
+
+          <motion.p
+          className='contactus-p'
+          variants={scaleIn}>
+            <div className='contactus-icon'>
+              <i class="fa-solid fa-envelope"></i>
+              <a className='contactus-id' href='mailto:ammartariq2405@gmail.com'> ammartariq2405@gmail.com</a>
+            </div>
+          </motion.p>
+
+          <motion.p
+          className='contactus-p'
+          variants={scaleIn}>
+            <div className='contactus-icon'>
+              <i class="fa-solid fa-phone"></i>
+              <a className='contactus-id' href='tel:+923313864762'> +92-331-3864762</a>
+            </div>
+          </motion.p>
+
+        </motion.div>
+
+        <motion.div
+        className='contactus-grid'
+        variants={slideInRight}>
+
+          <motion.div className='contactus-form'>
+
+            <div className='contactus-data'>
+              
+              <div className='contactus-field'>
+                <label className='contactus-d1'>Name <span className='multi'>*</span></label>
+
+                <input
+                className='contactus-d2'
+                name='name'
+                type='text'
+                required
+                placeholder='Enter your full name'
+                value={formData.name}
+                onChange={handleInputChange}>
+                </input>
+              </div>
+
+              <div className='contactus-field'>
+                <label className='contactus-d1'>Phone number<span className='multi'> *</span></label>
+
+                <input
+                className='contactus-d2'
+                name='phone'
+                type='tel'
+                required
+                placeholder='Enter your phone number'
+                value={formData.phone}
+                onChange={handleInputChange}>
+                </input>
+              </div>       
+
+              <div className='contactus-field'>
+                <label className='contactus-d1'>Email <span className='multi'>*</span></label>
+
+                <input
+                className='contactus-d2'
+                name='email'
+                type='email'
+                required
+                placeholder='Enter your email address'
+                value={formData.email}
+                onChange={handleInputChange}>
+                </input>
+              </div>      
+
+              <div className='contactus-field'>
+                <label className='contactus-d1'>Message <span className='multi'>*</span></label>
+
+                <input
+                className='contactus-d2'
+                name='message'
+                type='text'
+                required
+                placeholder='Enter your message'
+                value={formData.message}
+                onChange={handleInputChange}>
+                </input>
+              </div>
+
+              <button
+              onClick={handleSubmit}
+              disabled={isSubmitting}
+              className='contactus-button'>
+                
+                {isSubmitting ? (
+                  <span>Sending...</span>
+                ) : (
+                  <>
+                    <span>Send Message</span>
+                  </>
+                )}
+              </button>      
+
+              {submitStatus && (
+                <div className={`text-center p-3 rounded-lg ${
+                  submitStatus.includes('successfully') 
+                    ? 'bg-green-100 text-green-800' 
+                    : 'bg-red-100 text-red-800'
+                }`}>
+                  {submitStatus}  
+                </div>
+              )}
+
+            </div>
           </motion.div>
+        </motion.div>
+      </motion.section>
 
-          <motion.div
-          class="form"
-          variants={fadeInUp}
-          whileHover={{ scale: 1.02}}>>
-            <form>
-              <input class="text" type="text" placeholder="Name" />
-              <input class="email" type="email" placeholder="Email" />
-              <input class="number" type="number" placeholder="Phone" />
-              <input class="text" type="text" placeholder='enter your query' />
-              <button class="pricing-btn-2" >submit</button>
-            </form>
-          </motion.div>
-
-        </motion.section>
-
-    </div>
+      </div>
   );
 };
 

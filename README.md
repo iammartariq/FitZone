@@ -2,6 +2,6 @@
 npm install
 ```
 
-```cd
+```cnd
 npm install framer-motion
 ```

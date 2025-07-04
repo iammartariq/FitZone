@@ -21,7 +21,6 @@ html, body {
     padding: 0;
 }
 
-
 .multi{
     color:#f04b4b;
 }
@@ -215,7 +214,7 @@ html, body {
                     font-size: 1rem;
                     text-align: left;
                     margin-bottom: 1rem;
-                    line-height: 1.75;
+                    line-height: 1.75rem;
                 }
                 .about-list{
                     color: white;
@@ -533,4 +532,180 @@ html, body {
     font-weight: bold;
     background-color: #f7f7f7;
     transition: background-color 0.2s;
+}
+
+.contactus-header{
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+}
+
+.contactus-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  width: 45%;
+  float: left;
+}
+
+.contactus-grid {
+  width: 45%;
+  float: right;
+  margin-left: 10%;
+}
+
+.contactus-h3 {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.contactus-p {
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: left;
+  margin-bottom: 1rem;
+  line-height: 1.75rem;
+  transition: all 0.3s ease;
+}
+
+.contactus-p:hover {
+  transform: translateX(10px);
+}
+
+.contactus-icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contactus-icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #d97706;
+  transform: translateY(-2px);
+}
+
+.contactus-icon i {
+  font-size: 1.5rem;
+  color: #d97706;
+  width: 24px;
+  text-align: center;
+}
+
+.contactus-id {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contactus-id:hover {
+  color: #f04b4b;
+}
+
+.contactus-grid {
+  width: 45%;
+  float: right;
+  margin-left: 6%;
+  margin-right: 4%;
+  display: grid;
+  background: rgba(31, 41, 55, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  border-radius: 1rem;
+  padding: 3rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.contactus-form {
+  width: 100%;
+}
+
+.contactus-data {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contactus-field {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.5rem;
+}
+
+.contactus-d1 {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.contactus-d2 {
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.contactus-d2::placeholder {
+  color: #9ca3af;
+}
+
+.contactus-d2:focus {
+  border-color: #f04b4b;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.contactus-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background-color: #f04b4b;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.contactus-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background-color: #d97706;
+}
+
+.contactus-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.send-button {
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.contactus-button:hover .send-button {
+  transform: translateX(3px);
 }
