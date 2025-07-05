@@ -1,4 +1,4 @@
-        /* 1 rem = 16px */
+/* 1 rem = 16px */
 
 *{
     margin: 0;
@@ -93,7 +93,7 @@ html, body {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    padding: 0 1 rem
+    padding: 0 1rem;
 }
 
 .main-title{
@@ -174,7 +174,7 @@ html, body {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    padding: 80px rem 1rem 1rem;
+    padding: 80px 1rem 1rem;
 }
 
 .pages2{
@@ -185,7 +185,7 @@ html, body {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    padding: 14px
+    padding: 80px 1rem 1rem;
 }
 
 .icon{
@@ -233,7 +233,7 @@ html, body {
                     }
         .about-grid{
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
         }
             .about-grid1{
@@ -285,40 +285,39 @@ html, body {
 
 .services-grid{
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1rem;
-            margin: 5rem;
+            margin: 2rem;
             margin-top: 1rem;
             max-width: 1200px;
             width: 100%;
-            flex: 0.5;
         }
                         .service-card1{
                                     background-color: #1f2937;
                                     border-radius: 3rem;
-                                    padding: 1rem 1rem;
+                                    padding: 2rem 1rem;
                                     text-align: center
                         }
                         .service-card2{
                                     background-color: #f04b4b;
                                     border-radius: 3rem;
-                                    padding: 1rem 1rem;
+                                    padding: 2rem 1rem;
                                     text-align: center
                         }
                         .service-card1:hover{
-                            transform: scale(1);
+                            transform: scale(1.02);
                             background-color: gray;
                             }
                         .service-card2:hover{
-                            transform: scale(1);
+                            transform: scale(1.02);
                             background-color: gray;
                             }
 
 .trainers-grid{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
-    margin: 5rem;
+    margin: 2rem;
     margin-top: 1rem;
     max-width: 1200px;
     width: 100%;
@@ -326,12 +325,11 @@ html, body {
     .trainers-card1{
                     background-color: #234e8a;
                     border-radius: 3rem;
-                    padding: 1rem 1rem;
+                    padding: 2rem 1rem;
                     text-align: center;
-                    margin-left: 1rem;
     }
         .trainers-card1:hover{
-                            transform: scale(1);
+                            transform: scale(1.02);
                             background-color: black;
         }
                 .trainers-card1:hover .link{
@@ -341,13 +339,11 @@ html, body {
     .trainers-card2{
                     background-color: #288759;
                     border-radius: 3rem;
-                    padding: 1rem 1rem;
+                    padding: 2rem 1rem;
                     text-align: center;
-                    margin-right: 0.5rem;
-                    margin-left: 0.5rem;
     }
             .trainers-card2:hover{
-                            transform: scale(1);
+                            transform: scale(1.02);
                             background-color: black;
         }
                 .trainers-card2:hover .link{
@@ -358,12 +354,11 @@ html, body {
     .trainers-card3{
                     background-color: #b47a2d;
                     border-radius: 3rem;
-                    padding: 1rem 1rem;
+                    padding: 2rem 1rem;
                     text-align: center;
-                    margin-right: 1rem;
     }
             .trainers-card3:hover{
-                    transform: scale(1);
+                    transform: scale(1.02);
                     background-color: black;
         }
                 .trainers-card3:hover .link{
@@ -372,35 +367,35 @@ html, body {
 
 .pricing-grid{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
-    margin: 5rem;
+    margin: 2rem;
     margin-top: 1rem;
     max-width: 1200px;
     width: 100%;
 }
     .pricing-card1{
                     background-color: #1f2937;
-                    border-color: white;
-                    border-width: 2px;
-                    padding: 1rem 3rem;
+                    border: 2px solid white;
+                    padding: 2rem 1.5rem;
                     text-align: center;
-                    max-height: 500px;
-                    margin-top: 1.5rem;
+                    border-radius: 1rem;
+                    position: relative;
     }
 
     .pricing-card2{
                     background-color: #1f2937;
-                    border-color: #f04b4b;
-                    border-width: 2px;
-                    padding: 1rem 3rem;
+                    border: 2px solid #f04b4b;
+                    padding: 2rem 1.5rem;
                     text-align: center;
-                    max-height: 800px;
+                    border-radius: 1rem;
+                    position: relative;
     }
     .pricing-card2:before {
         content: "POPULAR";
-        position: relative;
-        top: -25px;
+        position: absolute;
+        top: -15px;
+        left: 50%;
         transform: translateX(-50%);
         background-color: #059669;
         color: white;
@@ -486,73 +481,36 @@ html, body {
                                 transform: scale(1.05);
                             }
 
-.form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    background-color: #000000;
-    border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0);
-    width: 100%;
-    max-width: 500px;
-    margin: 2rem auto;
-}     
-
-.email{
-    padding: 0.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    width: 100%;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #f7f7f7;
-    transition: background-color 0.2s;
-}
-
-.text{
-    padding: 0.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    width: 100%;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #f7f7f7;
-    transition: background-color 0.2s;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-}
-
-.number{
-    padding: 0.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    width: 100%;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #f7f7f7;
-    transition: background-color 0.2s;
-}
-
 .contactus-header{
             align-items: center;
             justify-content: center;
             padding: 2rem;
 }
 
+.contactus-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem;
+}
+
 .contactus-text {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 1rem;
-  width: 45%;
-  float: left;
 }
 
 .contactus-grid {
-  width: 45%;
-  float: right;
-  margin-left: 10%;
+  display: grid;
+  background: rgba(31, 41, 55, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  border-radius: 1rem;
+  padding: 3rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 .contactus-h3 {
@@ -612,21 +570,6 @@ html, body {
   color: #f04b4b;
 }
 
-.contactus-grid {
-  width: 45%;
-  float: right;
-  margin-left: 6%;
-  margin-right: 4%;
-  display: grid;
-  background: rgba(31, 41, 55, 0.8);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-  border-radius: 1rem;
-  padding: 3rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
 .contactus-form {
   width: 100%;
 }
@@ -660,6 +603,8 @@ html, body {
   font-size: 1rem;
   transition: all 0.3s ease;
   outline: none;
+  resize: vertical;
+  min-height: 50px;
 }
 
 .contactus-d2::placeholder {
@@ -708,4 +653,275 @@ html, body {
 
 .contactus-button:hover .send-button {
   transform: translateX(3px);
+}
+
+.footer {
+  background-color: #151d29;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 0;
+}
+
+.footer-container {
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  height: 35px;
+}
+
+.footer-credit {
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Mobile Navigation Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main-title {
+    font-size: 4rem;
+  }
+  
+  .title {
+    font-size: 3rem;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .services-grid,
+  .trainers-grid,
+  .pricing-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin: 1rem;
+  }
+  
+  .about-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    height: auto;
+    min-height: 50px;
+  }
+  
+  .navbar-container {
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-link {
+    margin: 0.25rem 0;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .main-title {
+    font-size: 3rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .home-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-book,
+  .btn-learn {
+    width: 200px;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .about-h3,
+  .about-p,
+  .about-list {
+    text-align: center;
+  }
+  
+  .about-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .about-grid1,
+  .about-grid2,
+  .about-grid3,
+  .about-grid4 {
+    padding: 2rem 1rem;
+  }
+  
+  .services-grid,
+  .trainers-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    margin: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .contactus-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .contactus-text {
+    order: 2;
+  }
+  
+  .contactus-grid {
+    order: 1;
+    padding: 2rem;
+  }
+  
+  .contactus-h3 {
+    font-size: 1.8rem;
+  }
+  
+  .pages1,
+  .pages2 {
+    padding: 60px 1rem 1rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    height: auto;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .footer-logo {
+    font-size: 1.2rem;
+  }
+  
+  .footer-credit {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-grid1,
+  .about-grid2,
+  .about-grid3,
+  .about-grid4 {
+    padding: 1.5rem 1rem;
+  }
+  
+  .grid-title {
+    font-size: 1.5rem;
+  }
+  
+  .pricing-grid-price {
+    font-size: 2.5rem;
+  }
+  
+  .contactus-grid {
+    padding: 1.5rem;
+  }
+  
+  .contactus-h3 {
+    font-size: 1.5rem;
+  }
+  
+  .icon {
+    font-size: 3rem;
+  }
+
+  .footer-logo {
+    font-size: 1rem;
+  }
+  
+  .footer-credit {
+    font-size: 0.8rem;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .home {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 1rem 2rem;
+  }
+  
+  .main-title {
+    font-size: 2.5rem;
+    margin-top: 0;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
 }
